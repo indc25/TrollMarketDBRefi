@@ -1,7 +1,7 @@
 package com.TrollMarket.TrollMarket;
 
-public class llmkss {
+public class IlhamBolosUjian {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Penakut");
     }
 }
