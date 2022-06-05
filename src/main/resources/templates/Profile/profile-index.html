@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/w3.css">
+    <link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/site.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script th:src="@{/js/site.js}" defer></script>
+
+</head>
+<body class="main-body" >
+
+<nav th:fragment="navigation">
+
+    <!-- header for welcome sign -->
+
+    <p class="w3-right" >Welcome, <span id="welcome">Guest</span><a class=" w3-button" href="#home"><i class="fa fa-sign-out"></i>
+        Sign Out</a></p>
+    <h1>Troll Market</h1>
+
+
+    <div class="w3-center w3-white w3-card w3-small" id="myNavbar">
+        <!-- Right-sided navbar links -->
+        <div class="w3-center w3-hide-small">
+            <a th:href="@{/profile/home}" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+            <a class="w3-bar-item w3-button" href="#profile"><i class="fa fa-user"></i> PROFILE</a>
+            <a class="w3-bar-item w3-button" href="#team"><i class="fa fa-usd"></i> SHOP</a>
+            <a class="w3-bar-item w3-button" href="#work"><i class="fa fa-gift "></i> MERCHANDISE</a>
+            <a class="w3-bar-item w3-button" href="#pricing"><i class="fa fa-ship"></i> SHIPMENT</a>
+            <a class="w3-bar-item w3-button" href="#contact"><i class="fa fa-shopping-cart"></i> MY CART</a>
+            <a class="w3-bar-item w3-button" href="#contact"><i class="fa fa-user-circle-o "></i> ADMIN</a>
+            <a class="w3-bar-item w3-button" href="#contact"><i class="fa fa-history"></i> HISTORY</a>
+        </div>
+    </div>
+</nav>
+<h1 class="bread-crumbs w3-large">Profile</h1>
+<!-- Breadcrumbs -->
+
+<div class="content">
+    <table class="trleft">
+        <thead>
+
+        </thead>
+        <tbody>
+        <tr class="trleft">
+            <td>Name</td>
+            <td id="fullName">fullName</td>
+        </tr>
+        <tr class="trleft">
+            <td>Role</td>
+            <td id="role">role</td>
+        </tr>
+        <tr class="trleft">
+            <td>Address</td>
+            <td id="address">address</td>
+        </tr>
+        <tr class="trleft">
+            <td>Phone</td>
+            <td id="phone">phone</td>
+        </tr>
+        <tr class="trleft">
+            <td>Balance</td>
+            <td id="balance">balance</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
+<!-- Header with full-height image -->
+
+<table class="table">
+    <tbody>
+    <tr class="table-header trcenter">
+        <th>Date</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Shipment</th>
+        <th>Total Price</th>
+    </tr>
+    <tr th:each="candidate : ${candidates}" class="table-row trcenter">
+        <td th:text="${candidate.id}">12 January 2022</td>
+        <td th:text="${candidate.firstName}">Mercedes Benz C300 AMG</td>
+        <td th:text="${candidate.lastName}">2</td>
+        <td th:text="${candidate.gender}">DHL Express</td>
+        <td th:text="${candidate.gender}">2.100.000.000</td>
+    </tr>
+    <tr th:each="candidate : ${candidates}" class="table-row trcenter">
+        <td th:text="${candidate.id}">12 May 2022</td>
+        <td th:text="${candidate.firstName}">BMW 330i G20 </td>
+        <td th:text="${candidate.lastName}">2</td>
+        <td th:text="${candidate.gender}">DHL Express</td>
+        <td th:text="${candidate.gender}">1.400.000.000</td>
+    </tr>
+    <tr th:each="candidate : ${candidates}" class="table-row trcenter">
+        <td th:text="${candidate.id}">12 June 2022</td>
+        <td th:text="${candidate.firstName}">Audi RS4 Quattro</td>
+        <td th:text="${candidate.lastName}">2</td>
+        <td th:text="${candidate.gender}">DHL Express</td>
+        <td th:text="${candidate.gender}">2.200.000.000</td>
+    </tr>
+    <tr th:each="candidate : ${candidates}" class="table-row trcenter">
+        <td th:text="${candidate.id}">12 July 2022</td>
+        <td th:text="${candidate.firstName}">Lambroghini Aventador LP450</td>
+        <td th:text="${candidate.lastName}">1</td>
+        <td th:text="${candidate.gender}">DHL Express</td>
+        <td th:text="${candidate.gender}">7.200.000.000</td>
+    </tr>
+    </tbody>
+</table>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Back to Top</a>
+    <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+</footer>
+
+<script>
+</script>
+
+</body>
+</html>
