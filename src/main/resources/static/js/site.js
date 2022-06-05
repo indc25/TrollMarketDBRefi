@@ -1,6 +1,6 @@
 ﻿(function () {
   let request = new XMLHttpRequest();
-  request.open("GET", "http://localhost:1234/troll-market/api/profile/find-by-id/1");
+  request.open("GET", "/troll-market/api/profile/find-by-id/1");
   request.send();
   request.onload = function () {
     let profile = JSON.parse(request.responseText);

@@ -38,4 +38,8 @@ public class History {
     @JoinColumn(name = "ShipVia", nullable = false)
     private Shipper shipVia;
 
+    public Long getTotalPrice(){
+        return productID.getUnitPrice().longValue() * quantity;
+    }
+
 }
