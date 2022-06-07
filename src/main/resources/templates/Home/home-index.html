@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+</head>
+<title>Home</title>
+
+<link rel="stylesheet" th:href="@{/css/site.css}"/>
+<link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+<link rel="stylesheet" th:href="@{/css/w3.css}"/>
+
+<link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/w3.css">
+<link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body class="main-body">
+<!--<nav th:replace="~{main-layout :: navigation}"></nav>-->
+<h1 class="bread-crumbs w3-large">Home</h1>
+<main class="bgimg-1">
+    <div class="w3-display-left w3-red w3-grayscale-min" >
+        <h1 class="w3-xxlarge w3-hide-small">WELCOME TO TROLL MARKET</h1><br>
+        <h1 class="w3-large w3-hide-large w3-hide-medium"></h1><br>
+        <h1 class="w3-large">This is A Marketplace Where Discount and Promo Doesn't Exist </h1>
+        <p><a th:href="@{/profile/find-all}" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Start Shopping!</a></p>
+    </div>
+
+</main>
+
+<!--<footer th:replace="~{main-layout :: footer}"></footer>-->
+</body>
+</html>
