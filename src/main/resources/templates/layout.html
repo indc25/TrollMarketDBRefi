@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:fragment="head">
     <title>TrollMarket</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" th:href="@{/css/site.css}"/>
     <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/w3.css}"/>
-    <link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/w3.css">
-    <link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/site.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script th:src="@{/js/site.js}" defer></script>
-
+    <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--    <script th:src="@{/js/site.js}" defer></script>-->
 </head>
-<body>
+
+<body class="main-body" th:data-role="${#authentication.getAuthorities()}">
 
 <nav th:fragment="navigation">
 
     <!-- header for welcome sign -->
-
-    <p class="w3-right" >Welcome, <span id="welcome">Guest</span><a class=" w3-button" th:href="@{/login}"><i class="fa fa-sign-out"></i>
-        Sign Out</a></p>
-    <h1>Troll Market</h1>
+    <header class="header" th:object="${profile}">
+        <p class="w3-right" >Welcome, <span id="welcome" th:text="*{fullName}">Guest</span><a class=" w3-button" th:href="@{/login}"><i class="fa fa-sign-out"></i>
+            Sign Out</a></p>
+        <h1>Troll Market</h1>
+    </header>
 
 
     <div class="w3-center w3-white w3-card w3-small" id="myNavbar">
         <!-- Right-sided navbar links -->
         <div class="w3-center w3-hide-small">
-            <a th:href="@{/home/index}" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+            <a class="w3-bar-item w3-button" th:href="@{/home}"><i class="fa fa-home"></i> HOME</a>
             <a class="w3-bar-item w3-button" href="#profile"><i class="fa fa-user"></i> PROFILE</a>
             <a class="w3-bar-item w3-button" href="#team"><i class="fa fa-usd"></i> SHOP</a>
             <a class="w3-bar-item w3-button" href="#work"><i class="fa fa-gift "></i> MERCHANDISE</a>
@@ -39,5 +41,20 @@
         </div>
     </div>
 </nav>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64" th:fragment="footer">
+    Copyrights &copy; 2022
+    <span class="author">Irfan R</span>
+    All rights reserved.
+    <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+</footer>
 </body>
 </html>
