@@ -11,7 +11,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.text.NumberFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -20,6 +23,7 @@ public class ProfileService {
 
     private final ProfileRepository profileRepositories;
     private final UserRepository userRepository;
+    NumberFormat currencyInstance = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
 
     @Autowired
     public ProfileService(ProfileRepository profileRepositories, UserRepository userRepository) {
@@ -29,24 +33,13 @@ public class ProfileService {
 
     public List<ProfileDto> findAllProfile() {
         List<Profile> profileList = profileRepositories.findAll();
-        return profileList.stream()
-                .map(profile -> new ProfileDto(
-                        profile.getId(),
-                        profile.getUser().getRoleID().getRoleName(),
-                        profile.getFullName(),
-                        profile.getGender(),
-                        profile.getBirthDate(),
-                        profile.getPhone(),
-                        profile.getAddress(),
-                        profile.getRegisterDate(),
-                        profile.getBalance().getBalance()
-                        ))
-                .collect(Collectors.toList());
+
+        return ProfileDto.toList(profileList);
     }
 
     public ProfileDto findByIdProfile(Long id) {
 
-            Profile profile = profileRepositories.findById(id).orElse(null);
+        Profile profile = profileRepositories.findById(id).orElse(null);
         return new ProfileDto(
                 profile.getId(),
                 profile.getUser().getRoleID().getRoleName(),
@@ -56,7 +49,7 @@ public class ProfileService {
                 profile.getPhone(),
                 profile.getAddress(),
                 profile.getRegisterDate(),
-                profile.getBalance().getBalance());
+                currencyInstance.format(profile.getBalance().getBalance()));
     }
 
     public ProfileDto getProfileUserLogin() {
@@ -72,21 +65,25 @@ public class ProfileService {
                 profile.getPhone(),
                 profile.getAddress(),
                 profile.getRegisterDate(),
-                profile.getBalance().getBalance());
+                currencyInstance.format(profile.getBalance().getBalance()));
     }
 
 
     public List<HistoryPurcaseGridDto> getHistoryPurcase() {
         Optional<LoginDto> user = userRepository.findByUsername(getUserLogin());
         Profile profile = profileRepositories.getById(user.get().getId());
+        //create dateTimeFormatter indonesia
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id", "ID"));
+        //create format currency indonesia
+        NumberFormat currencyInstance = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
 
         return profile.getHistories().stream()
                 .map(history -> new HistoryPurcaseGridDto(
-                        history.getHistoryDate().toString(),
+                        history.getHistoryDate().format(timeFormatter),
                         history.getProductID().getProductName(),
                         history.getQuantity(),
                         history.getShipVia().getCompanyName(),
-                        history.getTotalPrice()
+                        currencyInstance.format(history.getTotalPrice())
                 ))
                 .toList();
     }
