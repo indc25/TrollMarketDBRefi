@@ -598,3 +598,62 @@ h2{
   .content{
       grid-area: content;
   }
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 180px;
+      padding-left: 250px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 40%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+
+
+    }
+    .modal2 {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 250px;
+      padding-left: 500px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 40%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+
+
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 100%;
+    }
+    .modal-content2 {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 40%;
+    }
+
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }

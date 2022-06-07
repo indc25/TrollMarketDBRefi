@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -59,8 +60,18 @@ public class Profile {
     @OneToMany(mappedBy = "buyerID")
     private Set<Cart> carts = new LinkedHashSet<>();
 
+    public Profile(Long id, BigDecimal balance) {
+        this.id = id;
+        this.balance = new Balance(id, balance);
+    }
+
+
     public String getFullName(){
         return String.format("%s %s", firstName, lastName);
+    }
+
+    public Profile(Balance balance) {
+        this.balance = balance;
     }
 
 }

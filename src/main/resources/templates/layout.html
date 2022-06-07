@@ -12,7 +12,7 @@
     <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--    <script th:src="@{/js/site.js}" defer></script>-->
+    <script th:src="@{/js/site.js}" defer></script>
 </head>
 
 <body class="main-body" th:data-role="${#authentication.getAuthorities()}">
@@ -31,7 +31,7 @@
         <!-- Right-sided navbar links -->
         <div class="w3-center w3-hide-small">
             <a class="w3-bar-item w3-button" th:href="@{/home}"><i class="fa fa-home"></i> HOME</a>
-            <a class="w3-bar-item w3-button" href="#profile"><i class="fa fa-user"></i> PROFILE</a>
+            <a class="w3-bar-item w3-button" th:href="@{/profile}"><i class="fa fa-user"></i> PROFILE</a>
             <a class="w3-bar-item w3-button" href="#team"><i class="fa fa-usd"></i> SHOP</a>
             <a class="w3-bar-item w3-button" href="#work"><i class="fa fa-gift "></i> MERCHANDISE</a>
             <a class="w3-bar-item w3-button" href="#pricing"><i class="fa fa-ship"></i> SHIPMENT</a>
@@ -43,10 +43,8 @@
 </nav>
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64" th:fragment="footer">
-    Copyrights &copy; 2022
-    <span class="author">Irfan R</span>
-    All rights reserved.
+<footer class="w3-center w3-black w3-padding-64">
+    <a href="#top" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Back to Top</a>
     <div class="w3-xlarge w3-section">
         <i class="fa fa-facebook-official w3-hover-opacity"></i>
         <i class="fa fa-instagram w3-hover-opacity"></i>

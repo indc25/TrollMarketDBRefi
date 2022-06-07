@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="~{layout :: head}"></head>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="~{layout :: head}">
+    <script th:src="@{/js/site.js}" defer></script>
+</head>
 <body class="main-body">
 
 <nav th:replace="~{layout :: navigation}"></nav>
@@ -17,30 +18,60 @@
         <tbody>
         <tr class="trleft">
             <td>Name</td>
+            <td>:</td>
             <td id="fullName" th:text="*{fullName}">fullName</td>
         </tr>
         <tr class="trleft">
             <td>Role</td>
+            <td>:</td>
             <td id="role" th:text="*{role}">role</td>
         </tr>
         <tr class="trleft">
             <td>Address</td>
+            <td>:</td>
             <td id="address" th:text="*{address}">address</td>
         </tr>
         <tr class="trleft">
             <td>Phone</td>
+            <td>:</td>
             <td id="phone" th:text="*{phone}">phone</td>
         </tr>
         <tr class="trleft">
             <td>Balance</td>
+            <td>:</td>
             <td id="balance" th:text="*{balance}">balance</td>
+            <td>
+                <button class="w3-button w3-black" id="myBtn">Add Balance</button>
+            </td>
         </tr>
+
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+
+                <form action="@{/profile/addBalance}" method="post">
+                    <input type="hidden" name="id" th:text="*{userId}" readonly>
+                    <p>Add Balance Amount : </p>
+<!--                    <input type="text" name="balance" th:text="*{balance}" readonly>-->
+                    <input type="number" th:field="*{balance}" placeholder="Enter amount">
+                    <input type="submit" value="Add">
+                </form>
+
+<!--                <input type="text" id="fname" name="fname">-->
+<!--                <div><br>-->
+<!--                    <button class="w3-button w3-black"> Add Balance</button>-->
+<!--                    <button class="w3-button w3-black close">Cancel</button>-->
+<!--                </div>-->
+
+            </div>
+
+        </div>
 
         </tbody>
     </table>
 
-
 </div>
+
 <!-- Header with full-height image -->
 
 <table class="table">
@@ -64,10 +95,8 @@
 </table>
 
 <!-- Footer -->
-<footer th:replace="~{layout :: footer}"></footer>
 
-<script>
-</script>
+<footer th:replace="~{layout :: footer}"></footer>
 
 </body>
 </html>

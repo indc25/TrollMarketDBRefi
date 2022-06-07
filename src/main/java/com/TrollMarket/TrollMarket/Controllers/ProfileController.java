@@ -18,6 +18,9 @@ public class ProfileController {
     public String index(Model model) {
         model.addAttribute("historyPurcase", profileService.getHistoryPurcase());
         model.addAttribute("profile", profileService.getProfileUserLogin());
+
         return "Profile/profile-index";
     }
+
+
 }

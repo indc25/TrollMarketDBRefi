@@ -27,4 +27,9 @@ public class Balance {
     @Column(name = "Balance", nullable = false, precision = 19, scale = 4)
     private BigDecimal balance;
 
+
+    public Balance(Long id, BigDecimal balance) {
+        this.id = id;
+        this.balance = balance;
+    }
 }

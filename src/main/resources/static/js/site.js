@@ -1,15 +1,15 @@
-﻿(function () {
-  let request = new XMLHttpRequest();
-  request.open("GET", "/troll-market/api/profile/find-by-id/2");
-  request.send();
-  request.onload = function () {
-    let profile = JSON.parse(request.responseText);
-    drawRow(profile);
-
-//    createDetailButtonListener();
-  };
-//  createCloseButtonListener();
-})();
+﻿//(function () {
+//  let request = new XMLHttpRequest();
+//  request.open("GET", "/troll-market/api/profile/find-by-id/2");
+//  request.send();
+//  request.onload = function () {
+//    let profile = JSON.parse(request.responseText);
+//    drawRow(profile);
+//
+////    createDetailButtonListener();
+//  };
+////  createCloseButtonListener();
+//})();
 
 //function requestSingleUser(id){
 //    let actionUrl = `https://troll-market/api/profile/find-all`;
@@ -22,19 +22,19 @@
 //    }
 //}
 
-function drawRow({
-    fullName,
-    role,
-    address,
-    phone,
-    balance
-}) {
-  document.getElementById("welcome").innerHTML = `${fullName}`;
-  document.getElementById("fullName").innerHTML = `: ${fullName}`;
-  document.getElementById("role").innerHTML = `: ${role}`;
-  document.getElementById("address").innerHTML = `: ${address}`;
-  document.getElementById("phone").innerHTML = `: ${phone}`;
-  document.getElementById("balance").innerHTML = `: Rp.${balance}`;
+//function drawRow({
+//    fullName,
+//    role,
+//    address,
+//    phone,
+//    balance
+//}) {
+//  document.getElementById("welcome").innerHTML = `${fullName}`;
+//  document.getElementById("fullName").innerHTML = `: ${fullName}`;
+//  document.getElementById("role").innerHTML = `: ${role}`;
+//  document.getElementById("address").innerHTML = `: ${address}`;
+//  document.getElementById("phone").innerHTML = `: ${phone}`;
+//  document.getElementById("balance").innerHTML = `: Rp.${balance}`;
 //  firstName.innerHTML = `${firstName}`;
 //  lastName.innerHTML = `${lastName}`;
 //  gender.innerHTML = `${gender}`;
@@ -51,7 +51,7 @@ function drawRow({
 
 //  let tableBody = document.querySelector(".content table > tbody");
 //  tableBody.appendChild(tableRow);
-}
+//}
 
 //function createCloseButtonListener() {
 //  let closeButton = document.querySelector(".close-button");
@@ -118,3 +118,29 @@ function drawRow({
 //  document.querySelector(".dialog .category").textContent = category;
 //  document.querySelector(".dialog .thumbnail").src = thumbnail;
 //}
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
