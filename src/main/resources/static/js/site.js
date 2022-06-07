@@ -1,6 +1,6 @@
 ﻿(function () {
   let request = new XMLHttpRequest();
-  request.open("GET", "/troll-market/api/profile/find-by-id/1");
+  request.open("GET", "/troll-market/api/profile/find-by-id/2");
   request.send();
   request.onload = function () {
     let profile = JSON.parse(request.responseText);
@@ -10,6 +10,17 @@
   };
 //  createCloseButtonListener();
 })();
+
+//function requestSingleUser(id){
+//    let actionUrl = `https://troll-market/api/profile/find-all`;
+//    let requestSingleUser = new XMLHttpRequest();
+//    requestSingleUser.open("GET",actionUrl);
+//    requestSingleUser.send();
+//    requestSingleUser.onload = function(){
+//        let product = JSON.parse(requestSingleUser.responseText);
+//        drawRow(product);
+//    }
+//}
 
 function drawRow({
     fullName,

@@ -26,4 +26,7 @@ public class Role {
     @OneToMany(mappedBy = "roleID")
     private Set<User> users = new LinkedHashSet<>();
 
+    public Role(Integer id) {
+        this.id = id;
+    }
 }

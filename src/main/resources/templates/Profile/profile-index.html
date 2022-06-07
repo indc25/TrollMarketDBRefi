@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Profile</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/site.css}"/>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/w3.css}"/>
-    <link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/w3.css">
-    <link rel="stylesheet" href="../TrollProjectHtmlCssUntilProfile/resources/static/css/site.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script th:src="@{/js/site.js}" defer></script>
-
-</head>
-<body class="main-body" >
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body" th:data-role="${#authentication.getAuthorities()}">
 
 <nav th:fragment="navigation">
 
     <!-- header for welcome sign -->
 
-    <p class="w3-right" >Welcome, <span id="welcome">Guest</span><a class=" w3-button" href="#home"><i class="fa fa-sign-out"></i>
+    <p class="w3-right" >Welcome, <span id="welcome">Guest</span><a class=" w3-button" th:href="@{/login}"><i class="fa fa-sign-out"></i>
         Sign Out</a></p>
     <h1>Troll Market</h1>
 

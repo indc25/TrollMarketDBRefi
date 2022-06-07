@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Basilisk</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
+    <!--css-->
+    <link rel="stylesheet" th:href="@{/resources/css/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/site.css}">
+</head>
+<body class="authentication-body">
+
+<div class="authentication-wrapper">
+    <header class="company-logo">
+        <img alt="Basilisk" th:src="@{/resources/image/logo.png}">
+        <h1>Trade of <span class="bold">basilisk</span></h1>
+    </header>
+
+    <main>
+        <form method="post" th:action="@{/user/register}" th:object="${account}">
+                <label for="username">Username*</label>
+                <div class="field-validation-error" th:errors="*{username}" >ssss</div>
+            <div class="form-group">
+                <input class="form-control" id="username" name="username" placeholder="Username" th:field="*{username}"
+                       type="text">
+            </div>
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input class="form-control" id="password" name="password" placeholder="Password" th:field="*{password}"
+                       type="password">
+            </div>
+            <select th:field="*{role}">
+                <option th:value=null>No Specific Role</option>
+                <option th:each="option : ${roleDropdown}" th:selected="${option.id == role}"
+                        th:text="${option.roleName}" th:value="${option.id}"/>
+            </select>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Register</button>
+            </div>
+        </form>
+
+    </main>
+
+</div>
+
+<!--<th:block th:replace="~{main-layout :: javascript}"></th:block>-->
+</body>
+</html>

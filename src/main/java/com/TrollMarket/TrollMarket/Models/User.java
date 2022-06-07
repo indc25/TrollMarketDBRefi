@@ -35,4 +35,10 @@ public class User {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
     private Profile profile;
 
+    public User(String username, String password, Role roleID, Boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.roleID = roleID;
+        this.enabled = enabled;
+    }
 }

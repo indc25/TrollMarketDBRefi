@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{main-layout :: head}"></head>
+<body class="authentication-body">
+
+<div class="authentication-wrapper">
+    <header th:replace="~{login-layout :: header}"></header>
+
+    <main>
+        <h1>Akses ditolak</h1>
+        <p>Role anda tidak terotorisasi untuk mengakses fungsi ini pada sistem</p>
+        <p>Kontak admin untuk mendapatkan informasi lebah tentang role anda</p>
+        <div class="link-container">
+            <a th:href="@{/}">Kembali ke beranda</a>
+        </div>
+    </main>
+
+</div>
+
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
