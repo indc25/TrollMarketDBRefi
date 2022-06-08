@@ -1,6 +1,5 @@
 package com.TrollMarket.TrollMarket.Services;
 
-import com.TrollMarket.TrollMarket.Dto.ProfileAddBalanceDto;
 import com.TrollMarket.TrollMarket.Dto.ProfileDto;
 import com.TrollMarket.TrollMarket.Dto.PurchaseHistories.HistoryPurcaseGridDto;
 import com.TrollMarket.TrollMarket.Dto.User.LoginDto;
@@ -12,8 +11,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -96,11 +93,5 @@ public class ProfileService {
         String currentPrincipalName = authentication.getName();
         System.out.println(currentPrincipalName);
         return currentPrincipalName;
-    }
-
-    public void addBalance(ProfileAddBalanceDto profileAddBalanceDto) {
-        Profile profile = profileRepositories.getById(profileAddBalanceDto.getId());
-        profile.getBalance().setBalance(profile.getBalance().getBalance().add(profileAddBalanceDto.getBalance()));
-        profileRepositories.save(profile);
     }
 }
