@@ -8,12 +8,9 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ProfileAddBalanceDto {
     private Long id;
     private BigDecimal balance;
 
-    public ProfileAddBalanceDto(Long id, BigDecimal balance) {
-        this.id = id;
-        this.balance = balance;
-    }
 }

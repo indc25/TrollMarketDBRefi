@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="~{layout :: head}">
+<head th:fragment="head">
+    <title>TrollMarket</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script th:src="@{/js/site.js}" defer></script>
 </head>
 <body class="main-body">
@@ -50,17 +59,17 @@
             <div class="modal-content">
 
                 <form action="@{/profile/addBalance}" method="post">
-                    <input type="hidden" name="id" th:text="*{userId}" readonly>
+<!--                    <input type="hidden" name="id" th:text="*{userId}" readonly>-->
                     <p>Add Balance Amount : </p>
 <!--                    <input type="text" name="balance" th:text="*{balance}" readonly>-->
                     <input type="number" th:field="*{balance}" placeholder="Enter amount">
-                    <input type="submit" value="Add">
+<!--                    <input type="submit" value="Add">-->
                 </form>
 
 <!--                <input type="text" id="fname" name="fname">-->
 <!--                <div><br>-->
-<!--                    <button class="w3-button w3-black"> Add Balance</button>-->
-<!--                    <button class="w3-button w3-black close">Cancel</button>-->
+                    <button class="w3-button w3-black"> Add Balance</button>
+                    <button class="w3-button w3-black close">Cancel</button>
 <!--                </div>-->
 
             </div>

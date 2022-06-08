@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <title>TrollMarket</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script th:src="@{/js/jquery-3.6.0.min1.js}" defer></script>
+</head>
+<body class="main-body" >
+
+<nav th:replace="~{layout :: navigation}"></nav>
+<h1 class="bread-crumbs w3-large">Merchandise</h1>
+<!-- Breadcrumbs -->
+
+<div class = "content">
+    <form th:action="@{/merchandise/add}">
+        <input type="submit" value="Add New Product" />
+    </form>
+</div>
+
+<table class="table content">
+
+    <tbody>
+    <tr class="table-header trcenter">
+        <th colspan="1">Action</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Discontinue</th>
+    </tr>
+
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Edit</button>
+            <button class="w3-button w3-black " > Delete</button>
+            <button class="w3-button w3-black infoBtn "> Info</button>
+            <button class="w3-button w3-black " > Discontinue</button>
+        </td>
+        <td >Mercedes Benz C300 AMG</td>
+        <td >Exotic Car</td>
+        <td >No</td>
+    </tr>
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Edit</button>
+            <button class="w3-button w3-black " > Delete</button>
+            <button class="w3-button w3-black infoBtn "> Info</button>
+            <button class="w3-button w3-black " > Discontinue</button>
+        </td>
+        <td >BMW 330i G20</td>
+        <td >Exotic Car</td>
+        <td >No</td>
+    </tr>
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Edit</button>
+            <button class="w3-button w3-black " > Delete</button>
+            <button class="w3-button w3-black infoBtn "> Info</button>
+            <button class="w3-button w3-black " > Discontinue</button>
+        </td>
+        <td >Audi RS4 Quattro</td>
+        <td >Exotic Car</td>
+        <td >Yes</td>
+    </tr>
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Edit</button>
+            <button class="w3-button w3-black " > Delete</button>
+            <button class="w3-button w3-black infoBtn"> Info</button>
+            <button class="w3-button w3-black detailBtn" > Discontinue</button>
+        </td>
+        <td>Lambroghini Aventador LP450</td>
+        <td>Exotic Car</td>
+        <td>Yes</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!-- Footer -->
+<footer th:replace="~{layout :: footer}"></footer>
+
+<div id="myModal" class="w3-modal">
+
+    <!-- Modal content -->
+    <div class="modal-content2">
+
+        <p>Quantity : </p>
+        <input type="text" id="fname" name="fname">
+        <p>Shipment:</p>
+        <select>
+            <option value="volvo">China Ocean Shipping Company </option>
+            <option value="saab">DHL</option>
+            <option value="opel">A.P. Moller-Maersk </option>
+            <option value="audi">Mediterranean Shipping Company</option>
+        </select>
+        <div><br>
+            <button class="w3-button w3-black" > Add to Cart</button>
+            <button class="w3-button w3-black close" >Cancel</button>
+        </div>
+
+    </div>
+
+</div>
+<!-- Modal content -->
+<div id="modalDetail" class="w3-modal">
+    <div class="modal-content2">
+        <table class="trleft">
+            <tbody>
+            <tr class="trleft">
+                <td>Name</td>
+                <td>: Irfan Rahmanindra</td>
+            </tr>
+            <tr class="trleft">
+                <td>Category</td>
+                <td>: Car</td>
+            </tr>
+            <tr class="trleft">
+                <td>Description</td>
+                <td>: Exotic Car</td>
+            </tr>
+            <tr class="trleft">
+                <td>Price</td>
+                <td>: Rp.2.000.000.000</td>
+            </tr>
+            <tr class="trleft">
+                <td>Discontinue</td>
+                <td> Yes</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+        <div><br>
+
+            <button class="w3-button w3-black close1" >Close</button>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

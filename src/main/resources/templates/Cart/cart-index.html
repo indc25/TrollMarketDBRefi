@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <title>TrollMarket</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!--    <script th:src="@{/js/jquery-3.6.0.min1.js}" defer></script>-->
+</head>
+<body class="main-body" >
+
+<nav th:replace="~{layout :: navigation}"></nav>
+
+<h1 class="bread-crumbs w3-large">Cart</h1>
+<!-- Breadcrumbs -->
+
+<div class="content">
+    <button class="w3-button w3-black addBtn"> Purhcase All</button>
+</div>
+
+<table class="table content">
+
+    <tbody>
+    <tr class="table-header trcenter">
+        <th colspan="1">Action</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Shipment</th>
+        <th>Seller</th>
+        <th>Total Price</th>
+    </tr>
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Remove</button>
+
+        </td>
+        <td>Mercedes Benz C300 AMG</td>
+        <td>2</td>
+        <td>2.100.000.000</td>
+        <td>Prestige</td>
+        <td>4.200.000.000</td>
+    </tr>
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Remove</button>
+
+        </td>
+        <td>BMW 330i G20</td>
+        <td>2</td>
+        <td>1.400.000.000</td>
+        <td>Prestige</td>
+        <td>2.800.000.000</td>
+    </tr>
+    <tr th:each="candidate : ${candidates}" class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Remove</button>
+
+        </td>
+        <td >Audi RS4 Quattro</td>
+        <td >2</td>
+        <td >2.200.000.000</td>
+        <td >Prestige</td>
+        <td >4.400.000.000</td>
+    </tr>
+    <tr class="table-row trcenter">
+        <td>
+            <button class="w3-button w3-black  "> Remove</button>
+
+        </td>
+        <td>Lambroghini Aventador LP450</td>
+        <td>1</td>
+        <td>7.200.000.000</td>
+        <td>Prestige</td>
+        <td>7.200.000.000</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!-- Footer -->
+<footer th:replace="~{layout :: footer}"></footer>
+
+<!-- Modal content -->
+<div id="modalAdd" class="w3-modal">
+    <div class="modal-content2">
+        <table class="trleft">
+            <tbody>
+            <tr class="trleft">
+                <td>Name</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="trleft">
+                <td>Category</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="trleft">
+                <td>Service</td>
+                <td> <input type="checkbox"></td>
+            </tr>
+
+
+            </tbody>
+        </table>
+        <div><br>
+
+            <button class="w3-button w3-black close" >Close</button>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
