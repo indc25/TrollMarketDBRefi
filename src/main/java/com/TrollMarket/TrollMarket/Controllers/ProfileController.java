@@ -9,6 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("profile")
@@ -23,14 +26,26 @@ public class ProfileController {
         model.addAttribute("profile", profileService.getProfileUserLogin());
         return "Profile/profile-index";
     }
-//
-//    @PostMapping
-//    public String update(ProfileAddBalanceDto profileAddBalanceDto, BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "Profile/profile-index";
-//        }
-//        return "redirect:/Profile/profile-index";
-//    }
-//
+
+    @GetMapping
+    private String update(@RequestParam (required = false) Long id, Model model) {
+        model.addAttribute("profile", profileService.getProfileUserLogin());
+        return "Profile/profile-index";
+    }
+
+    @PostMapping("addBalance")
+    public String updateBalance(@Valid ProfileAddBalanceDto profileAddBalanceDto,
+                         BindingResult bindingResult,
+                         Model model) {
+        model.addAttribute("profile/addBalance", profileService.getProfileUserLogin());
+        if (bindingResult.hasErrors()) {
+            return update(profileAddBalanceDto.getId(), model);
+        }
+        profileService.saveBalance(profileAddBalanceDto);
+        return "redirect:/profile/index";
+    }
+
+
+
 
 }

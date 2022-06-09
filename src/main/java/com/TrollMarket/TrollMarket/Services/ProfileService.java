@@ -1,9 +1,12 @@
 package com.TrollMarket.TrollMarket.Services;
 
+import com.TrollMarket.TrollMarket.Dto.ProfileAddBalanceDto;
 import com.TrollMarket.TrollMarket.Dto.ProfileDto;
 import com.TrollMarket.TrollMarket.Dto.PurchaseHistories.HistoryPurcaseGridDto;
 import com.TrollMarket.TrollMarket.Dto.User.LoginDto;
+import com.TrollMarket.TrollMarket.Models.Balance;
 import com.TrollMarket.TrollMarket.Models.Profile;
+import com.TrollMarket.TrollMarket.Repositories.BalanceRepository;
 import com.TrollMarket.TrollMarket.Repositories.ProfileRepository;
 import com.TrollMarket.TrollMarket.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +25,14 @@ public class ProfileService {
 
     private final ProfileRepository profileRepositories;
     private final UserRepository userRepository;
+    private final BalanceRepository balanceRepository;
     NumberFormat currencyInstance = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
 
     @Autowired
-    public ProfileService(ProfileRepository profileRepositories, UserRepository userRepository) {
+    public ProfileService(ProfileRepository profileRepositories, UserRepository userRepository, BalanceRepository balanceRepository) {
         this.profileRepositories = profileRepositories;
         this.userRepository = userRepository;
+        this.balanceRepository = balanceRepository;
     }
 
     public List<ProfileDto> findAllProfile() {
@@ -94,12 +99,12 @@ public class ProfileService {
         return currentPrincipalName;
     }
 
-//    public void saveBalance(ProfileAddBalanceDto profileAddBalanceDto) {
-//        Profile profile = new Profile(
-//                profileAddBalanceDto.getId(),
-//                profileAddBalanceDto.getBalance()
-//        );
-//        profileRepositories.save(profile);
-//    }
-
+    public void saveBalance(ProfileAddBalanceDto profileAddBalanceDto){
+        Balance balance = balanceRepository.getById(profileAddBalanceDto.getId());
+        Profile profile = new Profile(
+                profileAddBalanceDto.getId(),
+                balance
+        );
+        profileRepositories.save(profile);
+    }
 }

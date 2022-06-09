@@ -60,11 +60,10 @@ public class Profile {
     @OneToMany(mappedBy = "buyerID")
     private Set<Cart> carts = new LinkedHashSet<>();
 
-//    public Profile(Long id, BigDecimal balance) {
-//        this.id = id;
-//        this.balance = new Balance(balance);
-//    }
-
+    public Profile(Long id, Balance balance) {
+        this.id = id;
+        this.balance = balance;
+    }
 
     public String getFullName(){
         return String.format("%s %s", firstName, lastName);

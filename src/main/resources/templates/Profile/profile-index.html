@@ -19,8 +19,8 @@
 <h1 class="bread-crumbs w3-large">Profile</h1>
 <!-- Breadcrumbs -->
 
-<div class="content">
-    <table class="trleft" th:object="${profile}">
+<div class="content" th:object="${profile}">
+    <table class="trleft">
         <thead>
 
         </thead>
@@ -58,20 +58,13 @@
             <!-- Modal content -->
             <div class="modal-content">
 
-                <form action="@{/profile/addBalance}" method="post">
-<!--                    <input type="hidden" name="id" th:text="*{userId}" readonly>-->
+                <form method="post" th:action="@{/profile/addBalance}" th:object="${profile}" >
                     <p>Add Balance Amount : </p>
-<!--                    <input type="text" name="balance" th:text="*{balance}" readonly>-->
-                    <input type="number" th:field="*{balance}" placeholder="Enter amount">
-<!--                    <input type="submit" value="Add">-->
+<!--                    <input type="text" th:field="*{id}">-->
+                    <input type="number" th:field="*{balance}" name="balance" placeholder="Enter amount">
+                    <button class="w3-button w3-black" type="submit"> Add Balance</button>
                 </form>
-
-<!--                <input type="text" id="fname" name="fname">-->
-<!--                <div><br>-->
-                    <button class="w3-button w3-black"> Add Balance</button>
-                    <button class="w3-button w3-black close">Cancel</button>
-<!--                </div>-->
-
+                <button class="w3-button w3-black close">Cancel</button>
             </div>
 
         </div>
