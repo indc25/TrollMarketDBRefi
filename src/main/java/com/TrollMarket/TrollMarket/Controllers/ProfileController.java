@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,7 +17,7 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
-    @GetMapping("index")
+    @GetMapping("/index")
     public String index(Model model) {
         model.addAttribute("historyPurcase", profileService.getHistoryPurcase());
         model.addAttribute("profile", profileService.getProfileUserLogin());
@@ -34,14 +31,13 @@ public class ProfileController {
     }
 
     @PostMapping("addBalance")
-    public String updateBalance(@Valid ProfileAddBalanceDto profileAddBalanceDto,
+    public String updateBalance(@Valid @ModelAttribute("addBalance") ProfileAddBalanceDto dto,
                          BindingResult bindingResult,
                          Model model) {
-        model.addAttribute("profile/addBalance", profileService.getProfileUserLogin());
         if (bindingResult.hasErrors()) {
-            return update(profileAddBalanceDto.getId(), model);
+            return update(dto.getId(), model);
         }
-        profileService.saveBalance(profileAddBalanceDto);
+        profileService.saveBalance(dto);
         return "redirect:/profile/index";
     }
 

@@ -39,6 +39,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/profile/*","/home").hasAnyAuthority("Seller", "Buyer")
                 .anyRequest().authenticated()
                 .and()
+                .csrf().disable()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/authenticating")
@@ -46,7 +47,6 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");
-//                .csrf().disable();
     }
 
 }

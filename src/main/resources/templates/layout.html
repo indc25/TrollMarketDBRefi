@@ -9,11 +9,12 @@
     <link rel="stylesheet" th:href="@{/css/site.css}"/>
     <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/w3.css}"/>
-    <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
+<!--    <link rel="icon" th:href="@{/image/TrollMarket.jpg" type="image/ico"/>-->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script th:src="@{/js/site.js}" defer></script>
-    <script th:src="@{/js/jquery-3.6.0.min.js}" defer></script>
+<!--    <script th:src="@{/js/jquery-3.6.0.min.js}" defer></script>-->
 </head>
 
 <body class="main-body" th:data-role="${#authentication.getAuthorities()}">
