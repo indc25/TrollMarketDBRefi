@@ -1,5 +1,6 @@
 package com.TrollMarket.TrollMarket.Services;
 
+import com.TrollMarket.TrollMarket.Dto.Profile.ProfileBalanceDto;
 import com.TrollMarket.TrollMarket.Dto.ProfileAddBalanceDto;
 import com.TrollMarket.TrollMarket.Dto.ProfileDto;
 import com.TrollMarket.TrollMarket.Dto.PurchaseHistories.HistoryPurcaseGridDto;
@@ -101,10 +102,14 @@ public class ProfileService {
 
     public void saveBalance(ProfileAddBalanceDto profileAddBalanceDto){
         Balance balance = balanceRepository.getById(profileAddBalanceDto.getId());
-        Profile profile = new Profile(
-                profileAddBalanceDto.getId(),
-                balance
-        );
-        profileRepositories.save(profile);
+        balance.setBalance(balance.getBalance().add(profileAddBalanceDto.getBalance()));
+        balanceRepository.save(balance);
+    }
+
+    public ProfileBalanceDto updateBalanceProfile(ProfileAddBalanceDto dto){
+        Balance balance = balanceRepository.getById(dto.getId());
+        balance.setBalance(balance.getBalance().add(dto.getBalance()));
+        balanceRepository.save(balance);
+        return ProfileBalanceDto.set(balance);
     }
 }

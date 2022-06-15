@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:fragment="head">
+<head>
     <title>TrollMarket</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" th:href="@{/css/site.css}"/>
     <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/w3.css}"/>
-    <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
+<!--    <link rel="icon" th:href="@{/image/TrollMarket.jpg" type="image/ico"/>-->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script th:src="@{/js/site.js}" defer></script>
+    <script th:src="@{/js/helper/helperPutJson.js}" defer></script>
 </head>
 <body class="main-body">
 
@@ -54,23 +56,23 @@
             </td>
         </tr>
 
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-
-                <form method="post" th:action="@{/profile/addBalance}" th:object="${profile}" >
-                    <p>Add Balance Amount : </p>
-<!--                    <input type="text" th:field="*{id}">-->
-                    <input type="number" th:field="*{balance}" name="balance" placeholder="Enter amount">
-                    <button class="w3-button w3-black" type="submit"> Add Balance</button>
-                </form>
-                <button class="w3-button w3-black close">Cancel</button>
-            </div>
-
-        </div>
-
         </tbody>
     </table>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <form id="sample-form" method="" action="http://localhost:1234/troll-market/api/profile/addBalance">
+                <p>Add Balance Amount : </p>
+                <input type="text" th:value="${profile.userId}" name="id">
+                <input type="number" name="balance" placeholder="Enter amount">
+                <button class="w3-button w3-black" type="submit"> Add Balance</button>
+            </form>
+            <button class="w3-button w3-black close">Cancel</button>
+        </div>
+
+    </div>
 
 </div>
 
