@@ -24,12 +24,18 @@ public class Balance {
     @JoinColumn(name = "UserID", nullable = false)
     private Profile profile;
 
-    @Column(name = "Balance", nullable = false, precision = 19, scale = 4)
+    @Column(name = "Balance", precision = 19, scale = 4)
     private BigDecimal balance;
 
 
-    public Balance(Long id, BigDecimal balance) {
-        this.id = id;
-        this.balance = balance;
+//    public Balance(Long id, BigDecimal balance) {
+//        this.id = id;
+//        this.balance = balance;
+//    }
+
+
+    public Balance(Profile profile, Integer balance) {
+        this.profile = profile;
+        this.balance = new BigDecimal(balance);
     }
 }

@@ -1,4 +1,4 @@
-package com.TrollMarket.TrollMarket.Controllers;
+package com.TrollMarket.TrollMarket.RestController;
 
 import com.TrollMarket.TrollMarket.Dto.Profile.ProfileBalanceDto;
 import com.TrollMarket.TrollMarket.Dto.ProfileAddBalanceDto;
