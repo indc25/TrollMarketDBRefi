@@ -42,10 +42,10 @@ public class Profile {
     private String phone;
 
     @Lob
-    @Column(name = "Address", nullable = false)
+    @Column(name = "Address")
     private String address;
 
-    @Column(name = "RegisterDate", nullable = false)
+    @Column(name = "RegisterDate")
     private LocalDate registerDate;
 
     @OneToMany(mappedBy = "buyerID")
@@ -69,5 +69,9 @@ public class Profile {
         return String.format("%s %s", firstName, lastName);
     }
 
-
+    public Profile(User user, String firstName) {
+        this.user = user;
+        this.firstName = firstName;
+        this.registerDate = LocalDate.now();
+    }
 }
