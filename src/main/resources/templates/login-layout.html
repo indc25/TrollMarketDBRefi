@@ -1,11 +1,192 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head></head>
-<body>
-    <header th:fragment="header" class="company-logo">
-        <img th:src="@{/resources/image/logo.png}" alt="Basilisk">
-        <h1>Trade of <span class="bold">basilisk</span></h1>
-    </header>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 
+<head>
+    <meta charset="UTF-8">
+    <title>TrollMarket</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <!--    <link href="../static/css/login.css" rel="stylesheet">-->
+    <link href="@{/image/TrollMarket.jpg" rel="icon" type="image/ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--    <script th:src="@{/js/login.js}" defer></script>-->
+    <!--    <script src="../static/js/login.js" defer></script>-->
+
+</head>
+<body>
+
+
+<div id="container">
+    <h1>TROLL MARKET</h1>
+    <div id="tabs">
+        <p class="tabs" id="lt">Log in</p>
+        <p class="tabs" id="rt">Register</p>
+        <div id="clear"></div>
+    </div>
+    <div class="comm" id="login">
+        <h3>Sign in</h3>
+        <input id="se" placeholder="Email" required type="email"/>
+        <input id="sp" placeholder="Password" required type="password"/>
+        <input onclick="login()" type="submit" value="Submit"/>
+
+        <p onclick="forTabFun()">Forget Password?</p>
+    </div>
+    <div class="comm" id="register">
+        <h3>Register</h3>
+
+        <input id="re" placeholder="Email" required type="email"/>
+        <input id="rp" placeholder="Password" required type="password"/>
+        <input id="rrp" placeholder="Re write Password" required type="password"/>
+        <input onclick="register()" type="submit" value="Submit"/>
+
+    </div>
+    <div class="comm" id="forgot">
+        <h3>Forgot Password</h3>
+        <div>
+            <input id="fe" placeholder="Email" required type="email"/>
+            <input onclick="forgot()" type="submit" value="Submit"/>
+        </div>
+    </div>
+
+</div>
 </body>
+
+<script>
+var emailArray=[];
+var passwordArray=[];
+
+var loginBox = document.getElementById("login");
+var regBox = document.getElementById("register");
+var forgetBox = document.getElementById("forgot");
+
+var loginTab = document.getElementById("lt");
+var regTab = document.getElementById("rt");
+
+const ltBtn = document.getElementById("lt");
+const rtBtn = document.getElementById("rt");
+
+ltBtn.addEventListener("click", loginTabFun);
+rtBtn.addEventListener("click", regTabFun)
+function regTabFun(){
+    event.preventDefault();
+
+    regBox.style.visibility="visible";
+    loginBox.style.visibility="hidden";
+    forgetBox.style.visibility="hidden";
+
+    regTab.style.backgroundColor="#e63946";
+    loginTab.style.backgroundColor="black";
+}
+function loginTabFun(){
+    event.preventDefault();
+
+    regBox.style.visibility="hidden";
+    loginBox.style.visibility="visible";
+    forgetBox.style.visibility="hidden";
+
+    loginTab.style.backgroundColor="#e63946";
+    regTab.style.backgroundColor="black";
+}
+function forTabFun(){
+    event.preventDefault();
+
+    regBox.style.visibility="hidden";
+    loginBox.style.visibility="hidden";
+    forgetBox.style.visibility="visible";
+
+    regTab.style.backgroundColor="#e63946";
+    loginTab.style.backgroundColor="#e63946";
+
+}
+
+
+function register(){
+    event.preventDefault();
+
+    var email = document.getElementById("re").value;
+    var password = document.getElementById("rp").value;
+    var passwordRetype = document.getElementById("rrp").value;
+
+    if (email == ""){
+        alert("Email required.");
+        return ;
+    }
+    else if (password == ""){
+        alert("Password required.");
+        return ;
+    }
+    else if (passwordRetype == ""){
+        alert("Password required.");
+        return ;
+    }
+    else if ( password != passwordRetype ){
+        alert("Password don't match retype your Password.");
+        return;
+    }
+    else if(emailArray.indexOf(email) == -1){
+        emailArray.push(email);
+        passwordArray.push(password);
+
+        alert(email + "  Thanks for registration. \nTry to login Now");
+
+        document.getElementById("re").value ="";
+        document.getElementById("rp").value="";
+        document.getElementById("rrp").value="";
+    }
+    else{
+        alert(email + " is already register.");
+        return ;
+    }
+}
+function login(){
+    event.preventDefault();
+
+    var email = document.getElementById("se").value;
+    var password = document.getElementById("sp").value;
+
+    var i = emailArray.indexOf(email);
+
+    if(emailArray.indexOf(email) == -1){
+        if (email == ""){
+            alert("Email required.");
+            return ;
+        }
+        alert("Email does not exist.");
+        return ;
+    }
+    else if(passwordArray[i] != password){
+        if (password == ""){
+            alert("Password required.");
+            return ;
+        }
+        alert("Password does not match.");
+        return ;
+    }
+    else {
+        alert(email + " yor are login Now \n welcome to our website.");
+
+        document.getElementById("se").value ="";
+        document.getElementById("sp").value="";
+        return ;
+    }
+
+}
+function forgot(){
+    event.preventDefault();
+
+    var email = document.getElementById("fe").value;
+
+    if(emailArray.indexOf(email) == -1){
+        if (email == ""){
+            alert("Email required.");
+            return ;
+        }
+        alert("Email does not exist.");
+        return ;
+    }
+
+    alert("email is send to your email check it in 24hr. \n Thanks");
+    document.getElementById("fe").value ="";
+}
+</script>
 </html>
