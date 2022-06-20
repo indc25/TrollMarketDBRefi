@@ -49,7 +49,7 @@ public class UserService {
         String hashPassword = passwordEncoder.encode(dto.getPassword());
 
         User user = new User(dto.getUsername(), hashPassword, role, true);
-        Profile profile = new Profile(user, dto.getFirstName());
+        Profile profile = new Profile(user, dto.getFirstName(), dto.getLastName());
         Balance balance = new Balance(profile , 0);
         userRepository.save(user);
         profileRepository.save(profile);

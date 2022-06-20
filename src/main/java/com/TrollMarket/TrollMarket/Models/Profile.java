@@ -69,9 +69,10 @@ public class Profile {
         return String.format("%s %s", firstName, lastName);
     }
 
-    public Profile(User user, String firstName) {
+    public Profile(User user, String firstName, String lastName) {
         this.user = user;
         this.firstName = firstName;
+        this.lastName = lastName;
         this.registerDate = LocalDate.now();
     }
 }
