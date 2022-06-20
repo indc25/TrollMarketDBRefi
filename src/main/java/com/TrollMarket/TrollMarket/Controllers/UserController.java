@@ -22,13 +22,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("login-form")
-//    public String loginForm(Model model) {
-//        return "account/login-form";
-//    }
     @GetMapping("login-form")
     public String loginForm(Model model) {
-        return "login-layout";
+        return "account/login-form";
     }
 
     @GetMapping("access-denied")
