@@ -12,5 +12,7 @@ import java.io.Serializable;
 public class RegisterDTO implements Serializable {
     private String username;
     private String password;
+    private String firstName;
+    private String lastName;
     private Integer role;
 }
