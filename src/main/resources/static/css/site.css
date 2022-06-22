@@ -52,9 +52,13 @@ html {
 .main-body > footer {
     background-color: black;
     grid-area: bottom;
-    display: block;
+     width: 100%;
+    height: 200px;
+    position:relative;
     padding: 0 25px;
     line-height: 0px;
+   
+    bottom: -200px;
 }
 .main-body > nav .company-logo {
     display: grid;
@@ -566,7 +570,13 @@ h2{
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-   
+        font-size: 12px;   
+}
+.table1 {
+    grid-area:table;
+    border-collapse: collapse;
+    table-layout:auto;
+        font-size: 12px;   
 }
  .table-header {
     background-color: #95A5A6;
