@@ -1,4 +1,4 @@
-package com.TrollMarket.TrollMarket.Controllers;
+package com.TrollMarket.TrollMarket.Controllers.CategoryController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

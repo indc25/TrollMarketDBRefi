@@ -32,51 +32,18 @@
         <th>Price</th>
         <th>Service</th>
     </tr>
-    <tr class="table-row trcenter">
+    <tr class="table-row trcenter" th:each="shipment : ${shipment}">
         <td>
             <button class="w3-button w3-black  "> Edit</button>
             <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black  "> Stop Service</button>
-
+            <a th:href="@{/shipment/stopService(id=${shipment.id})}" class="w3-button w3-black">
+                Stop Service
+            </a>
         </td>
-        <td>China Ocean Shipping Company</td>
-        <td>Rp. 5.000</td>
-        <td>No</td>
+        <td th:text="${shipment.companyName}"></td>
+        <td th:text="${shipment.price}"></td>
+        <td th:text="${shipment.enabled}"></td>
     </tr>
-    <tr class="table-row trcenter">
-        <td>
-            <button class="w3-button w3-black  "> Edit</button>
-            <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black  "> Stop Service</button>
-
-        </td>
-        <td >DHL</td>
-        <td >Rp. 3.000</td>
-        <td >No</td>
-    </tr>
-    <tr class="table-row trcenter">
-        <td>
-            <button class="w3-button w3-black  "> Edit</button>
-            <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black  "> Stop Service</button>
-
-        </td>
-        <td >A.P. Moller-Maersk</td>
-        <td >Rp. 9.000</td>
-        <td >No</td>
-    </tr>
-    <tr class="table-row trcenter">
-        <td>
-            <button class="w3-button w3-black  "> Edit</button>
-            <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black "> Stop Service</button>
-
-        </td>
-        <td >Mediterranean Shipping Companyy</td>
-        <td >Rp. 7.000</td>
-        <td >No</td>
-    </tr>
-
     </tbody>
 </table>
 

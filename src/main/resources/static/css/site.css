@@ -14,7 +14,7 @@ html {
     display: -ms-grid;
     display: grid;
     grid-template-columns: 0fr;
-    grid-template-rows: 110px 40px 1fr 1fr 100px;
+    grid-template-rows: 110px 40px 0fr 1fr 100px;
     grid-template-areas: "menu header" "menu breadcrumbs" "menu content" "menu table" "menu bottom";
 }
 .main-body > nav {

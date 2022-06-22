@@ -22,28 +22,31 @@
 <div class="content">
 
     <table class="trleft">
+        <form th:action="@{/shop/index}" method="GET" class="filter">
         <tbody>
         <tr class="trleft">
             <td>Name</td>
             <td>:</td>
-            <td><input type="text" id="fname" name="fname"></td>
+            <td><input type="text" placeholder="Name.." name="productName" th:value="${productName}"></td>
         </tr>
         <tr class="trleft">
             <td>Category</td>
             <td>:</td>
-            <td><input type="text" id="fname" name="fname"></td>
+            <td><input type="text" placeholder="Category Name.." name="categoryName" th:value="${categoryName}"></td>
         </tr>
         <tr class="trleft">
             <td>Description</td>
             <td>:</td>
-            <td><input type="text" id="fname" name="fname"></td>
+            <td><input type="text" placeholder="Description.." name="description" th:value="${description}"></td>
         </tr>
         <tr class="trleft">
-            <td><button class="w3-button w3-black">Search</button></td>
+            <td><button class="w3-button w3-black" type="submit">Search</button></td>
         </tr>
 
         </tbody>
+        </form>
     </table>
+
 
 </div>
 <!-- Header with full-height image -->
@@ -56,39 +59,17 @@
         <th>Price</th>
     </tr>
 
-    <tr class="table-row trcenter">
-        <td> <button class="w3-button w3-black addBtn"> Add to Cart</button>
-            <button class="w3-button w3-black detailBtn" > Detail Info</button></td>
-        <td >Mercedes Benz C300 AMG</td>
-        <td >2.100.000.000</td>
-    </tr>
+    <tr class="table-row trcenter" th:each="shopList : ${shopList}">
+        <td>
+            <button class="w3-button w3-black addBtn"> Add to Cart</button>
+            <a class="w3-button w3-black detailBtn"  href="javascript:;" th:data-id=${shopList.id}>
+                Detail Info
+            </a>        </td>
+        <td th:text="${shopList.productName}"></td>
+        <td th:text="${shopList.unitPrice}"></td>
 
-    <tr class="table-row trcenter">
-        <td> <button class="w3-button w3-black addBtn"> Add to Cart</button>
-            <button class="w3-button w3-black detailBtn" > Detail Info</button></td>
-        <td >Mercedes Benz C300 AMG</td>
-        <td >2.100.000.000</td>
-    </tr>
 
-    <tr class="table-row trcenter">
-        <td> <button class="w3-button w3-black addBtn" > Add to Cart</button>
-            <button class="w3-button w3-black detailBtn"> Detail Info</button></td>
-        <td >BMW 330i G20 </td>
-        <td >1.400.000.000</td>
     </tr>
-    <tr class="table-row trcenter">
-        <td> <button class="w3-button w3-black addBtn" > Add to Cart</button>
-            <button class="w3-button w3-black detailBtn" > Detail Info</button></td>
-        <td >Audi RS4 Quattro</td>
-        <td >2.200.000.000</td>
-    </tr>
-    <tr class="table-row trcenter">
-        <td> <button class="w3-button w3-black addBtn" > Add to Cart</button>
-            <button class="w3-button w3-black detailBtn" > Detail Info</button></td>
-        <td >Lambroghini Aventador LP450</td>
-        <td >7.200.000.000</td>
-    </tr>
-
     </tbody>
 </table>
 
@@ -118,29 +99,34 @@
 
 </div>
 <!-- Modal content -->
-<div id="modalDetail" class="w3-modal">
+<div id="modalDetail" class="w3-modal" >
     <div class="modal-content2">
         <table class="trleft">
             <tbody>
             <tr class="trleft">
                 <td>Name</td>
-                <td>: Irfan Rahmanindra</td>
+                <td>:</td>
+                <td class="productName"></td>
             </tr>
             <tr class="trleft">
                 <td>Category</td>
-                <td>: Car</td>
+                <td>:</td>
+                <td class="categoryName"></td>
             </tr>
             <tr class="trleft">
                 <td>Description</td>
-                <td>: Exotic Car</td>
+                <td>:</td>
+                <td class="description"></td>
             </tr>
             <tr class="trleft">
                 <td>Price</td>
-                <td>: Rp.2.000.000.000</td>
+                <td>:</td>
+                <td class="unitPrice"></td>
             </tr>
             <tr class="trleft">
                 <td>Seller Name </td>
-                <td>: Andrew Tate</td>
+                <td>:</td>
+                <td class="sellerName"></td>
             </tr>
 
 

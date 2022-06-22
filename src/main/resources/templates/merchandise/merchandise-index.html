@@ -34,51 +34,19 @@
         <th>Discontinue</th>
     </tr>
 
-    <tr class="table-row trcenter">
+    <tr class="table-row trcenter" th:each="shopList : ${shopList}">
         <td>
             <button class="w3-button w3-black  "> Edit</button>
             <button class="w3-button w3-black " > Delete</button>
             <button class="w3-button w3-black infoBtn "> Info</button>
-            <button class="w3-button w3-black " > Discontinue</button>
+            <a th:href="@{/merchandise/discontinue(id=${shopList.id})}" class="w3-button w3-black">
+                Discontinue
+            </a>
         </td>
-        <td >Mercedes Benz C300 AMG</td>
-        <td >Exotic Car</td>
-        <td >No</td>
+        <td th:text="${shopList.productName}"></td>
+        <td th:text="${shopList.categoryId}"></td>
+        <td th:text="${shopList.discontinue}"></td>
     </tr>
-    <tr class="table-row trcenter">
-        <td>
-            <button class="w3-button w3-black  "> Edit</button>
-            <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black infoBtn "> Info</button>
-            <button class="w3-button w3-black " > Discontinue</button>
-        </td>
-        <td >BMW 330i G20</td>
-        <td >Exotic Car</td>
-        <td >No</td>
-    </tr>
-    <tr class="table-row trcenter">
-        <td>
-            <button class="w3-button w3-black  "> Edit</button>
-            <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black infoBtn "> Info</button>
-            <button class="w3-button w3-black " > Discontinue</button>
-        </td>
-        <td >Audi RS4 Quattro</td>
-        <td >Exotic Car</td>
-        <td >Yes</td>
-    </tr>
-    <tr class="table-row trcenter">
-        <td>
-            <button class="w3-button w3-black  "> Edit</button>
-            <button class="w3-button w3-black " > Delete</button>
-            <button class="w3-button w3-black infoBtn"> Info</button>
-            <button class="w3-button w3-black detailBtn" > Discontinue</button>
-        </td>
-        <td>Lambroghini Aventador LP450</td>
-        <td>Exotic Car</td>
-        <td>Yes</td>
-    </tr>
-
     </tbody>
 </table>
 

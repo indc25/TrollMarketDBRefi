@@ -1,4 +1,4 @@
-package com.TrollMarket.TrollMarket.Controllers;
+package com.TrollMarket.TrollMarket.Controllers.CategoryController;
 
 import com.TrollMarket.TrollMarket.Dto.CategoryDto;
 import com.TrollMarket.TrollMarket.Services.CategoryService;

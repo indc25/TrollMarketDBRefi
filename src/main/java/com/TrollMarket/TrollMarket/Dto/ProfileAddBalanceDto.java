@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfileAddBalanceDto {
-    private Long id;
     private BigDecimal balance;
 
 }
