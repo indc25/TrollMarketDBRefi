@@ -65,7 +65,7 @@
 
             <form id="sample-form" method="" action="http://localhost:1234/troll-market/api/profile/addBalance">
                 <p>Add Balance Amount : </p>
-                <input type="text" th:value="${profile.userId}" name="id">
+                <input type="hidden" th:value="${profile.userId}" name="id">
                 <input type="number" name="balance" placeholder="Enter amount">
                 <button class="w3-button w3-black" type="submit"> Add Balance</button>
             </form>

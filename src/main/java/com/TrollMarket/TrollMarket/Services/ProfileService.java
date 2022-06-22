@@ -100,9 +100,9 @@ public class ProfileService {
         return currentPrincipalName;
     }
 
-    public void saveBalance(ProfileAddBalanceDto profileAddBalanceDto){
-        Balance balance = balanceRepository.getById(profileAddBalanceDto.getId());
-        balance.setBalance(balance.getBalance().add(profileAddBalanceDto.getBalance()));
+    public void saveBalance(ProfileAddBalanceDto dto){
+        Balance balance = balanceRepository.getById(dto.getId());
+        balance.setBalance(balance.getBalance().add(dto.getBalance()));
         balanceRepository.save(balance);
     }
 
