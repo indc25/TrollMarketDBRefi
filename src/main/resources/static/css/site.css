@@ -14,7 +14,7 @@ html {
     display: -ms-grid;
     display: grid;
     grid-template-columns: 0fr;
-    grid-template-rows: 110px 40px 0fr 1fr 100px;
+    grid-template-rows: 110px 40px 0fr 0fr 100px;
     grid-template-areas: "menu header" "menu breadcrumbs" "menu content" "menu table" "menu bottom";
 }
 .main-body > nav {
@@ -548,11 +548,12 @@ h2{
    color: white;
  }
  .bgimg-1 {
-    
-    background-attachment:unset;
-    background-size:50%;
+    grid-area: content table;
+    background-size:70%;
+    height: 465px;
    background-position: center;
    background-image: url("../image/TrollMarket.png")
+
    
    
  }
@@ -564,24 +565,21 @@ h2{
     grid-area:table;
     width: 100%;
     border-collapse: collapse;
-    margin-top:30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    
-    
+    table-layout: fixed;
+   
 }
  .table-header {
     background-color: #95A5A6;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    border: 1px solid #ddd;
+    padding: 8px;
+    
   }
 
   .table-row {
     background-color: #ffffff;
-    font-size: 13px;
+    border: 1px solid #ddd;
+    padding: 8px;
+   
   }
 
   .trcenter {

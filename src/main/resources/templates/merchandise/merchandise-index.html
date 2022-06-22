@@ -7,6 +7,9 @@
     <link rel="stylesheet" th:href="@{/css/site.css}"/>
     <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/site.css"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/w3.css"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/normalize.css"/>
     <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,16 +27,15 @@
         </a>
 </div>
 
-<table class="table content">
+<table class="table ">
 
     <tbody>
     <tr class="table-header trcenter">
-        <th colspan="1">Action</th>
+        <th>Action</th>
         <th>Name</th>
         <th>Category</th>
         <th>Discontinue</th>
     </tr>
-
     <tr class="table-row trcenter" th:each="shopList : ${shopList}">
         <td>
             <button class="w3-button w3-black  "> Edit</button>
@@ -47,7 +49,21 @@
         <td th:text="${shopList.categoryId}"></td>
         <td th:text="${shopList.discontinue}"></td>
     </tr>
-    </tbody>
+    </tbody> 
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <!-- <div class="pagination">
+                    <div th:text="|Page ${page} of ${totalPage}|"></div>
+                    <div>
+                        <a th:each="pageLoop : ${#numbers.sequence(1, totalPage)}"
+                           th:href="@{/merchandise/index(page=${pageLoop}, productName=${productName})}"
+                           th:text="${pageLoop}"></a>
+                    </div>
+                </div> -->
+            </td>
+        </tr>
+    </tfoot>
 </table>
 
 <!-- Footer -->

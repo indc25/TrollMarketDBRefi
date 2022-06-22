@@ -4,6 +4,7 @@ import com.TrollMarket.TrollMarket.Services.ProductService;
 import com.TrollMarket.TrollMarket.Services.ProfileService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,7 @@ public class MerchandiseController {
 
     @RequestMapping("/index")
     public String homePages(Model model) {
+
         model.addAttribute("shop", productService.findProduct());
         model.addAttribute("profile", profileService.getProfileUserLogin());
         model.addAttribute("shopList", productService.findAllProduct());

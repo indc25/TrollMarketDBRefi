@@ -7,6 +7,9 @@
     <link rel="stylesheet" th:href="@{/css/site.css}"/>
     <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/site.css"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/w3.css"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/normalize.css"/>
     <link rel="icon" href="@{/image/TrollMarket.jpg" type="image/ico"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -15,19 +18,17 @@
 <body class="main-body" >
 
 <nav th:replace="~{layout :: navigation}"></nav>
-
 <h1 class="bread-crumbs w3-large">Shipment</h1>
 <!-- Breadcrumbs -->
 
 <div class = "content">
-    <button class="w3-button w3-black addBtn"> Add New Shipment</button>
+    <a class="w3-button w3-black addBtn"> Add New Shipment</a>
 </div>
 
-<table class="table content">
-
+<table class="table ">
     <tbody>
     <tr class="table-header trcenter">
-        <th colspan="1">Action</th>
+        <th>Action</th>
         <th>Name</th>
         <th>Price</th>
         <th>Service</th>
@@ -39,12 +40,27 @@
             <a th:href="@{/shipment/stopService(id=${shipment.id})}" class="w3-button w3-black">
                 Stop Service
             </a>
+
         </td>
         <td th:text="${shipment.companyName}"></td>
         <td th:text="${shipment.price}"></td>
         <td th:text="${shipment.enabled}"></td>
     </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <div class="pagination">
+                    <!-- <div th:text="|Page ${page} of ${totalPage}|"></div>
+                    <div>
+                        <a th:each="pageLoop : ${#numbers.sequence(1, totalPage)}"
+                           th:href="@{/shipment/index(page=${pageLoop}, companyName=${companyName})}"
+                           th:text="${pageLoop}"></a>
+                    </div> -->
+                </div>
+            </td>
+        </tr>
+    </tfoot>
 </table>
 
 <!-- Footer -->
