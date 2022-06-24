@@ -24,7 +24,11 @@ public class UserController {
 
     @GetMapping("login-form")
     public String loginForm(Model model) {
-        return "account/login-form";
+        RegisterDTO dto = new RegisterDTO();
+        List<RoleDropdownDto> roleDropdown = userService.getRoleDropdown();
+        model.addAttribute("roleDropdown", roleDropdown);
+        model.addAttribute("account", dto);
+        return "account/login-custom";
     }
 
     @GetMapping("access-denied")

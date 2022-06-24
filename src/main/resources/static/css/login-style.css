@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+}
+html {
+    font-family:"Raleway", sans-serif;
+    font-size: 10px;
+    line-height: 1.5;
+    height: 100%;
+}
+body {
+    background: url(../image/TrollMarket.jpg);
+}
+#container {
+    width: 400px;
+    margin-top: 200px;
+    margin-left: 570px;
+
+}
+#lt{
+    background-color: #e63946;
+    border-radius: 0px;
+
+}
+#rt{
+
+    border-radius: 0px;
+}
+#lt:hover {
+    box-shadow: inset 0 -3px 0 0 #e63946; 
+}
+#rt:hover {
+   
+    
+    box-shadow: inset 0 -3px 0 0 #e63946; 
+}
+
+.tabs {
+    display: table-cell;
+    width: 35%;
+    background-color: black;
+    padding: 10px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    
+    position: relative;
+    font-size: 1.3em;
+    color: #ffffff;
+}
+.tabs:hover, p{
+    cursor: pointer;
+}
+#cont {
+    width: 100%;
+    height: 300px;
+    background-color: rgba(11, 177, 224, 0.82);
+    border: 2px solid #ffffff;
+}
+
+input{
+    display: block;
+    width: 270px;
+    margin: 10px 13px;
+    padding: 10px;
+    font-size: 1.3em;
+    color: rgba(11, 177, 224, 0.82);
+    border-radius: 20px;
+
+}
+select{
+    display: block;
+    width: 290px;
+    margin: 10px 13px;
+    padding: 10px;
+    font-size: 1.3em;
+    color:  #e63946;
+    border-radius: 20px;
+
+}
+
+input[type="submit"] {
+    width: 294px;
+    color: white;
+    size: 10px;
+    background-color: black;
+    border-radius: 20px;
+}
+button[type="submit"] {
+    width: 294px;
+    color: white;
+    size: 10px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 9px;
+    margin: 10px;
+}
+button[type=submit]:hover
+{
+  background-color: #e63946;
+}
+
+input[type=submit]:hover
+{
+  background-color:  #e63946;
+}
+
+
+
+#clear {
+    clear: both;
+}
+
+.comm {
+    position: absolute;
+    visibility: hidden;
+    
+}
+#login {
+    visibility: visible;
+}
+h1 {
+    display: table-cell;
+    padding: 10px 80px;
+    vertical-align: middle;
+  font-weight: bolder;
+    color: black;
+}
+
+h3 {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    color: black;
+}
+
+#forgot h3 {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#forgot div {
+    margin-top: 30px;
+}
+p {
+    padding: 10px 15px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
