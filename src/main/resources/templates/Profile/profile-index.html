@@ -70,9 +70,14 @@
                 <p>Add Balance Amount : </p>
                 <input type="hidden" th:value="${profile.userId}" name="id">
                 <input type="number" name="balance" placeholder="Enter amount">
+                <span>
                 <button class="w3-button w3-black" type="submit"> Add Balance</button>
+                    <button class="w3-button w3-black" type="cancel" onclick="window.location='http://localhost:1234/troll-market/profile/index';return false;">Cancel</button>
+                    </span>
             </form>
-            <button class="w3-button w3-black close">Cancel</button>
+
+
+
         </div>
 
     </div>

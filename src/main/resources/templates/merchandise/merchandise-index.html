@@ -49,21 +49,7 @@
         <td th:text="${shopList.categoryId}"></td>
         <td th:text="${shopList.discontinue}"></td>
     </tr>
-    </tbody> 
-    <tfoot>
-        <tr>
-            <td colspan="4">
-                <!-- <div class="pagination">
-                    <div th:text="|Page ${page} of ${totalPage}|"></div>
-                    <div>
-                        <a th:each="pageLoop : ${#numbers.sequence(1, totalPage)}"
-                           th:href="@{/merchandise/index(page=${pageLoop}, productName=${productName})}"
-                           th:text="${pageLoop}"></a>
-                    </div>
-                </div> -->
-            </td>
-        </tr>
-    </tfoot>
+    </tbody>
 </table>
 
 <!-- Footer -->
@@ -98,19 +84,19 @@
             <tbody>
             <tr class="trleft">
                 <td>Name</td>
-                <td>: Irfan Rahmanindra</td>
+                <td class="productName"></td>
             </tr>
             <tr class="trleft">
                 <td>Category</td>
-                <td>: Car</td>
+                <td class="categoryName"></td>
             </tr>
             <tr class="trleft">
                 <td>Description</td>
-                <td>: Exotic Car</td>
+                <td class="description"></td>
             </tr>
             <tr class="trleft">
                 <td>Price</td>
-                <td>: Rp.2.000.000.000</td>
+                <td class="unitPrice"></td>
             </tr>
             <tr class="trleft">
                 <td>Discontinue</td>

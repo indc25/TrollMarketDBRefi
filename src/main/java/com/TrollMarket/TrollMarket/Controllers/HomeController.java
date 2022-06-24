@@ -19,7 +19,6 @@ public class HomeController {
     public String homePages(Model model) {
         ProfileAddBalanceDto dto = new ProfileAddBalanceDto();
         dto.setId(profileService.getProfileUserLogin().getUserId());
-        model.addAttribute("addBalance", dto);
         model.addAttribute("profile", profileService.getProfileUserLogin());
         return "home/home-index";
     }

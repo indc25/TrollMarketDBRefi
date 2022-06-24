@@ -19,7 +19,6 @@ public class ProductDetailsDto implements Serializable {
     private final String sellerName;
 
 
-
     public static ProductDetailsDto set(Product product) {
         NumberFormat currencyInstance = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         return new ProductDetailsDto(
